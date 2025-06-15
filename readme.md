@@ -1,3 +1,41 @@
+
+# Telegram Chat Moderation Scripts
+
+This set of scripts helps automate the moderation of a Telegram chat by removing invitation messages and banning users who invite others.
+
+## What the scripts do
+
+### ban.py
+- Reads a JSON file with chat history
+- Finds all users who invited others or joined via a link
+- Bans these users through the bot
+
+### delete.py
+- Reads the same JSON file
+- Finds all messages about invitations and joining via links
+- Deletes these messages through the bot
+
+## Important
+- The bot must be an administrator of the chat
+- The bot must have permission to delete messages and ban users
+- The scripts only work with messages available in the JSON file
+- When exporting chat history, MAKE SURE to select the correct dates, otherwise, all messages might be lost
+- This only works if there are messages like "X is now in the group (3:02)" or "X joined the group via invite link"
+- Do not manually delete join messages without using the script (otherwise, not all users will be banned)
+
+## How to use
+
+1. Place the `result.json` file (exported chat history, select json and the date range for banning) in the same folder as the scripts
+2. In both scripts, replace:
+   - `Bot Token` with your bot token (or get it from @BotFather)
+   - `-12321312321` with your chat ID
+3. Run the scripts:
+   ```bash
+   python ban.py
+   python delete.py
+
+
+
 # Скрипты для модерации Telegram чата
 
 Этот набор скриптов помогает автоматизировать модерацию Telegram чата, удаляя сообщения о приглашениях и баняя пользователей, которые приглашают других.
